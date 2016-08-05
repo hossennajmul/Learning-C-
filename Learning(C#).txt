@@ -48,3 +48,107 @@ ENUM:
             int friday = (int)days.fri;
 
             Console.WriteLine(friday);
+
+
+Static :: 
+
+Static Members of a C# Class
+We can define class members as static using the static keyword. When we declare a member of a class as static, it means no matter how many objects of the class are created, there is only one copy of the static member.
+
+The keyword static implies that only one instance of the member exists for a class. Static variables are used for defining constants because their values can be retrieved by invoking the class without creating an instance of it. Static variables can be initialized outside the member function or class definition. You can also initialize static variables inside the class definition.
+
+The following example demonstrates the use of static variables:\
+
+
+
+
+ class StaticVar
+    {
+        public static int num;
+        public void count()
+        {
+            num++;
+        }
+        public int getNum()
+        {
+            return num;
+        }
+    }
+
+
+    class StaticTester
+    {
+        static void Main(string[] args)
+        {
+            StaticVar s1 = new StaticVar();
+           // StaticVar s2 = new StaticVar();
+            StaticVar.num = 5;
+            s1.count();
+            s1.count();
+           // s2.count();
+           // s2.count();
+           // s2.count();
+            Console.WriteLine("Variable num for s1: {0}", s1.getNum());
+           // Console.WriteLine("Variable num for s2: {0}", s2.getNum());
+           // Console.ReadKey();
+        }
+    }
+
+Inheritance ..... 
+class Rectangle
+    {
+
+        private int h;
+        private int w;
+
+        public Rectangle(int h, int w)
+        {
+            this.h = h;
+            this.w = w;
+        }
+        public int getArea()
+        {
+            return w * h;
+        }
+
+        public void Display()
+        {
+            Console.WriteLine(w);
+            Console.WriteLine(h);
+            Console.WriteLine(getArea());
+        }
+
+
+    }
+
+    class cost : Rectangle
+    {
+       /// private double s;
+
+        public cost(int h, int w)
+            : base(h, w)
+        {
+
+        }
+
+        public double getCost()
+        {
+            double c = getArea() * 25;
+            return c;
+        }
+
+        public void Display()
+        {
+            base.Display();
+            Console.WriteLine(getCost());
+        }
+
+    }
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            cost c = new cost(2,3);
+            c.Display();
+        }
+    }
