@@ -35,3 +35,16 @@ namespace ArrayApplication
       }
    }
 }
+
+
+ENUM:
+
+
+        enum days { sun, mon, tue, wed, thu, fri };
+
+        static void Main(string[] args)
+        {
+
+            int friday = (int)days.fri;
+
+            Console.WriteLine(friday);
